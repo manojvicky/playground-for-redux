@@ -1,30 +1,41 @@
-import React from 'react';
 
+import React from 'react';
+import { connect } from 'react-redux';
+import { increment } from './counter.action';
+// import { bindActionCreators } from 'redux';
+console.log("actions", increment);
 class Counter extends React.Component {
-    constructor(){
-        super();
-        this.increment = this.increment.bind(this);
-        this.decrement = this.decrement.bind(this);
-        
-    }
-    increment(){
-        this.props.actions.increment(this.props.data+1);
-console.log("increment");    
-};
-    decrement(){this.props.data-1;
-console.log("decrement");     
-};
+  constructor(props) {
+        super(props);
+   }
    render() {
-       console.log("pros", this.props.actions);
-      return (
-         <div>
-             <div>
-            <button onClick={ this.increment } >+</button>
-            <button onClick={ this.decrement }>-</button>
+     return (
+           <div className="container">
+            <form>
+              <div className="field is-grouped">
+                <div className="control">
+                  <button className="button is-primary" 
+                    onClick={(e) => {e.preventDefault();
+                    console.log("hello");
+                    this.props.dispatch(increment(1))}}>
+                      Add
+                  </button>
+                </div>
+                <p>{this.props.count}</p>
+              </div>
+            </form>
             </div>
-            <p>{this.props.data}</p>
-         </div>
-      );
+     )
    }
 }
-export default Counter;
+
+function mapStateToProps(state){
+  return {
+    count: state.counterReducers.data,
+  };
+}
+
+// function mapDispatchToProps(dispatch) {
+//   return { actions: bindActionCreators(increment, dispatch) }
+// }
+export default connect(mapStateToProps)(Counter);

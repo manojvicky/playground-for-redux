@@ -1,13 +1,16 @@
 import constants from "./counter.constant";
-
-export function increment(data){
-  console.log("increment action", data);
-  return {
-    type: 'INCREMENT',
-    data
-  }
-}
-
+// console.log("constants", constants);
+// export function increment(data){
+//   console.log("increment action", data);
+//   return {
+//     type: 'INCREMENT',
+//     data
+//   }
+// }
+export const increment = (data) => ({
+  type: constants.INCREMENT,
+  data
+});
 export function decrement(data){
   return {
     type: 'DECREMENT',
