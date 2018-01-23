@@ -9,8 +9,9 @@ const initalstate = {
 export default function reducer(state=initalstate, action){
   switch (action.type) {
     case 'INCREMENT':
-    console.log("state", state.data);
-      return (Object.assign({}, state, action.data))
+    console.log("state", action.data);
+      return (Object.assign({}, state, 
+      {data: action.data}))
        
     case 'DECREMENT':
       return (Object.assign({}, state, action.data))

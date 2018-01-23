@@ -17,7 +17,7 @@ class Counter extends React.Component {
                   <button className="button is-primary" 
                     onClick={(e) => {e.preventDefault();
                     console.log("hello");
-                    this.props.dispatch(increment(1))}}>
+                    this.props.dispatch(increment(this.props.count+1))}}>
                       Add
                   </button>
                 </div>
