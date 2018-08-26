@@ -1,52 +1,71 @@
 import React from 'react';
-// import Counter from "./counter.container";
+import NewComponent from "./NewComponent";
+let config={
+  header:"this is header",
+  notifications:["notifications 1", "notifications 2", "notifications 3", "notifications 4"]
+};
+
 class App extends React.Component {
-   render() {
-    function fluent(fxn){
-      return function(...args){
-       fxn.apply(this, args);
-       return this;
+  constructor(props){
+    super(props);
+    this.state={
+      config: {
+        header:"this is header",
+        notifications:["notifications 1", "notifications 2", "notifications 3", "notifications 4"]
       }
-      }
+    };
+    this.fxn=this.fxn.bind(this);
+  }
 
-      function decofluent(fluentparameter){
-        return function(target, name, dec){
-          dec.value=fluentparameter.call(target, dec.value);
+    fxn(){
+     
+      let random = Math.floor(4*Math.random());
+      
+          console.log("timer", random)
+          
+          switch(random){
+            case 0: { 
+                    config={
+                      header:"this is header",
+                      notifications:["notifications 1"]
+                    }
+                    break;
+                  }
+            case 1: {
+                    config={
+                      header:"this is header",
+                      notifications:["notifications 1", "notifications 2"]
+                    }
+                      break;
+            }
+            case 2: {
+                    config={
+                      header:"this is header",
+                      notifications:["notifications 1", "notifications 2", "notifications 3"]
+                    }
+                      break;
+                    }
+            case 3: {
+                    config={
+                      header:"this is header",
+                      notifications:["notifications 4", "notifications 1", "notifications 2", "notifications 3"]
+                    }
+                      break;
+                    }
+          }
+          this.setState({
+        config: config
+      });
         }
-      }
+        
 
-      // function man(target, name, dec){
-      //   console.log(target);
-      //   console.log(name);
-      //   console.log(dec);
-      //   const fxn=dec.value;
-      //   console.log("fxn", fxn);
-      //   dec.value= function(...args){
-      //     console.log("args", args);
-      //     fxn.apply(target, args);
-      //     return target;
-      //   }
-      // }
-      
-      class Person{
-      @decofluent(fluent)
-      setName(name, last){
-      this.name=name;
-      this.last=last;
-      }
-      @decofluent(fluent)
-      getName(){
-      console.log("name ==>", this.name, this.last);
-      }
-      };
-
-      const p = new Person();
-      p.setName("moni","toni").getName().setName("i am a","disco dancer").getName();
-      console.log(p);
-      
-      
+   render() {
+    // setInterval(this.fxn(), 3000);
       return (
-        <div>deco</div>
+        <div>
+          <NewComponent config={this.state.config}/>
+          <button className="clickbutton" onClick={this.fxn}>click me</button>
+        </div>
       );
    }
 }
