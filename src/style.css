@@ -1,0 +1,27 @@
+.alert {
+    height: 50px;
+    background: orange;
+    position: fixed;
+    width: 100%;
+    padding-top: 13px !important
+}
+button.lastIcon {
+    float: right;
+}
+
+span.firstIcon {
+    float: left;
+}
+.drop{
+    width: 100%;
+    background: orange;
+    top: 50px;
+    position: fixed;
+}
+.eachnoti{
+    height: 50px;
+    padding-top: 15px;
+}
+.clickbutton{
+        margin-top: 500px;
+}
