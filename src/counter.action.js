@@ -1,15 +1,11 @@
 import constants from "./counter.constant";
 
-export function increment(data){
-  return {
+export const increment = (data)=>({
     type: 'INCREMENT',
     data
-  }
-}
+});
 
-export function decrement(data){
-  return {
+export const decrement = (data)=>({
     type: 'DECREMENT',
     data
-  }
-}
+});

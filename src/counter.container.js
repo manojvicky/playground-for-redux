@@ -7,7 +7,7 @@ import { bindActionCreators } from "redux";
 export default connect(
     (state)=>(
     {
-        config: state.counterReducer.config
+        count: state.counterReducer.count
     }),
     (dispatch)=>({
          actions: bindActionCreators(counterActions, dispatch)
