@@ -1,5 +1,5 @@
 import React from 'react';
-import Counter from './counter.container';
+import Async from './Async.container';
 
 class App extends React.Component {
   constructor(){
@@ -8,7 +8,7 @@ class App extends React.Component {
    render() {
       return (
         <div>
-          <Counter />
+          <Async />
         </div>
       );
    }

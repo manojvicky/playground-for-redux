@@ -1,7 +1,7 @@
 import {combineReducers} from "redux";
-import counterReducer from "./counter.reducer"
+import AsyncReducer from "./Async.reducer"
 const rootReducer = combineReducers({
-    counterReducer                   
+    AsyncReducer                   
 });
 
 export default rootReducer;

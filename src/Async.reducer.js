@@ -1,5 +1,5 @@
-import constants from "./counter.constant";
-import * as CounterActions from "./counter.action";
+// import constants from "./Async.constant";
+// import * as AsyncActions from "./Async.action";
 
 const initalstate = {
 count: 90
