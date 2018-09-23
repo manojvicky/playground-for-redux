@@ -8,13 +8,12 @@ import rootreducer from './combineReducer';
 import App from './App';
 
 const customLogger = function(store){
-                        console.log("store", store);
+                        // console.log("store", store);
                         return function (next){
-                        console.log("next", next);
+                        // console.log("next", next);
                           return function (action){
-                            console.log("action", action);
+                            // console.log("action", action);
                             console.log("prev store:", store.getState());
-                            action.name="Manoj";
                             console.log("Action:", action);
                             next(action);
                             console.log("next store:", store.getState());

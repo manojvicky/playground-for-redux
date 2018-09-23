@@ -1,14 +1,20 @@
 import React from 'react';
-import Async from './Async.container';
+import SimpleForm from './Forms/simpleForm';
+import ContactForm from './Forms/ContactForm';
+
 
 class App extends React.Component {
   constructor(){
     super();
+    this.myFunc = this.myFunc.bind(this);
+  }
+  myFunc(values){
+    console.log("form Values", values);
   }
    render() {
       return (
         <div>
-          <Async />
+          <ContactForm onSubmit={this.myFunc} />
         </div>
       );
    }
